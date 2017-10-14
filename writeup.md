@@ -1,9 +1,8 @@
 # **Traffic Sign Recognition**
 
 ## Writeup
----
 
-**Build a Traffic Sign Recognition Project**
+** Build a Traffic Sign Recognition Project**
 
 The goals / steps of this project are the following:
 * Load the data set (see below for links to the project data set)
@@ -15,9 +14,9 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./Writeup_images/Visualization_training.png "Visualization_training"
-[image2]: ./Writeup_images/Visualization_validation.png "Visualization_validation"
-[image3]: ./Writeup_images/visualization_test.png "Visualization_test"
+[image1]: ./Writeup_images/Visualization_training.png "Visualization training"
+[image2]: ./Writeup_images/Visualization_validation.png "Visualization validation"
+[image3]: ./Writeup_images/visualization_test.png "Visualization test"
 [image4]: ./Writeup_images/augment.png "Augment"
 [image5]: ./Writeup_images/grayscale.png "Grayscaling"
 [image6]: ./Writeup_images/test_img.png "Traffic Signs"
@@ -66,6 +65,7 @@ Here are exploratory visualizations of the data set. They are bar charts showing
 ![alt text][image1]
 ![alt text][image2]
 ![alt text][image3]
+
 </center>
 
 ### Design and Test a Model Architecture
@@ -93,6 +93,7 @@ As a last step, I normalized the image data to reduce the mean of the training s
 My final model consisted of the following layers:
 
 <center>
+
 |      Layer      |                 Description                 |
 |:---------------:|:-------------------------------------------:|
 |      Input      |           32x32x1 grayscale image           |
