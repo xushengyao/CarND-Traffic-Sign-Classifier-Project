@@ -13,9 +13,9 @@ The goals / steps of this project are the following:
 * Summarize the results with a written report
 
 [//]: # (Image References)
-[image1]: ./Writeup_images/Visualization_training.png "Visualization training"
-[image2]: ./Writeup_images/Visualization_validation.png "Visualization validation"
-[image3]: ./Writeup_images/visualization_test.png "Visualization test"
+[image1]: ./Writeup_images/training.png "Visualization training"
+[image2]: ./Writeup_images/validation.png "Visualization validation"
+[image3]: ./Writeup_images/test.png "Visualization test"
 [image4]: ./Writeup_images/augment.png "Augment"
 [image5]: ./Writeup_images/grayscale.png "Grayscaling"
 [image6]: ./Writeup_images/test_img.png "Traffic Signs"
@@ -40,13 +40,17 @@ The goals / steps of this project are the following:
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
 
----
+### Writeup / README
+
+#### 1. Writeup / README includes all the rubric points.
+
+Here is a link to my [project code](https://github.com/xushengyao/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
 
 ### Data Set Summary & Exploration
 
 #### 1. Provide a basic summary of the data set. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
 
-I used the numpy library to calculate summary statistics of the traffic signs data set:
+I used the Numpy library to calculate summary statistics of the traffic signs data set:
 
 * The size of training set is 34799
 * The size of the validation set is 4410
@@ -62,10 +66,12 @@ Here are exploratory visualizations of the data set. They are bar charts showing
 
 ![alt text][image1]
 </center>
+
 <center>
 
 ![alt text][image2]
 </center>
+
 <center>
 
 ![alt text][image3]
@@ -91,7 +97,7 @@ Here is an example of a traffic sign image before and after grayscaling.
 </center>
 As a last step, I normalized the image data to reduce the mean of the training set from all the data per each dimension. The code for making pre-processing on my training data set is located in the 8th cell of the Jupyter notebook.
 
-####2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
+#### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
 My final model consisted of the following layers:
 
@@ -109,10 +115,11 @@ My final model consisted of the following layers:
 |     Flatten     |                 output 400                  |
 | Fully connected |                 output 120                  |
 |      RELU       |                                             |
+|     Dropout     |               keep_prob = 0.7               |
 | Fully connected |                  output 84                  |
 |      RELU       |                                             |
+|     Dropout     |               keep_prob = 0.7               |
 | Fully connected |                  output 43                  |
-
 </center>
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
@@ -123,28 +130,29 @@ Regarding the optimizer, the batch size, and the learning rate, I just used the 
 
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
+* What architecture was chosen?
+  I used the LeNet architecture as the baseline. While, I made some changes on the original one to meet the required accuracy specifications, including changing the length of output from 10 to 43 and adding dropout layers to reduce the overfitting.
+* Why did you believe it would be relevant to the traffic sign application?
+  LeNet works very good with the grayscale  MINST training set. Since all traffic sign images are 32*32 size and have been converted to grayscale, I think it's very close to the MINST classification problem and LeNet should perform well on classifying traffic sign images.
+* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
+  In general, the validation and test accuracy are very close, but sill less than the training accuracy, which is a little bit of overfitting.
+
 My final model results were:
 * training set accuracy of 0.999
 * validation set accuracy of 0.961
 * test set accuracy of 0.951
-
-If a well known architecture was chosen:
-* What architecture was chosen?
-  I used the LeNet architecture. While, I did some changes on the original one form the trainging, including chaning the input depth from 3 to 1 due the grayscaling. I also changed the output.
-* Why did you believe it would be relevant to the traffic sign application?
-  LeNet is a widely used and relatively easily to be implemented.
-* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
-The test , the validation and the test accurecy is very close, but sill less than than the training accurecy, which is a little bit of overfitting.
-
 
 ### Test a Model on New Images
 
 #### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
 
 Here are ten German traffic signs that I found on the web:
+<center>
 
 ![alt text][image6]
-The first image might be difficult to classify because ...
+</center>
+
+The first image might be difficult to classify since the image I pick is not a standard German traffic sign. The rest of images should be recognized easily.
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
@@ -168,9 +176,11 @@ Here are the results of the prediction:
 
 The model was able to correctly guess 9 of the 10 traffic signs, which gives an accuracy of 90%. This compares favorably to the accuracy on the test set of 95.1%.
 
+Generally speaking, the model works well on most images and the accuracy is close to the test accuracy. I am a little bit of surprised that it can recognize the image one, which is not a standard traffic sign. While, I am also surprised it failed for the speed limit sign, and mixed the speed limit(30km/h) with the speed limit(20km/h). So, looks like the model still has some trouble predicting different speed limit signs.
+
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-Below is the distribution
+Below are the predicted probabilities distribution for ten tested images.
 
 <center>
 
@@ -186,15 +196,30 @@ Below is the distribution
 ![alt text][image16]
 </center>
 
+In general, according to the distribution comparison, the model is quite confident to get the predicted result in most cases.
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 #### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
+
+As the layer goes deeper, most noise are gone and only pixels with import features have been kept.
+
 <center>
 
 ![alt text][image17]
+conv1
+
 ![alt text][image18]
+conv1_relu
+
 ![alt text][image19]
+conv1_max_pool
+
 ![alt text][image20]
+conv2
+
 ![alt text][image21]
+conv2_relu
+
 ![alt text][image22]
+conv2_max_pool
 </center>
