@@ -200,28 +200,27 @@ In general, according to the distribution comparison, the model is quite confide
 As the layer goes deeper, most noise are gone and only pixels with import features have been kept.
 
 <center>
+<center>conv1</center>
 
 ![alt text][image17]
 
-conv1
+<center>conv1_relu</center>
 
 ![alt text][image18]
 
-conv1_relu
+<center>conv1_max_pool</center>
 
 ![alt text][image19]
 
-conv1_max_pool
+<center>conv2</center>
 
 ![alt text][image20]
 
-conv2
+<center>conv2_relu</center>
 
 ![alt text][image21]
 
-conv2_relu
+<center>conv2_max_pool</center>
 
 ![alt text][image22]
-
-conv2_max_pool
 </center>
