@@ -63,7 +63,9 @@ Here are exploratory visualizations of the data set. They are bar charts showing
 <center>
 
 ![alt text][image1]
+
 ![alt text][image2]
+
 ![alt text][image3]
 
 </center>
