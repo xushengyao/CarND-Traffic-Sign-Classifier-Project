@@ -63,11 +63,14 @@ Here are exploratory visualizations of the data set. They are bar charts showing
 <center>
 
 ![alt text][image1]
+</center>
+<center>
 
 ![alt text][image2]
+</center>
+<center>
 
 ![alt text][image3]
-
 </center>
 
 ### Design and Test a Model Architecture
