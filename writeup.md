@@ -2,7 +2,7 @@
 
 ## Writeup
 
-** Build a Traffic Sign Recognition Project**
+**Build a Traffic Sign Recognition Project**
 
 The goals / steps of this project are the following:
 * Load the data set (see below for links to the project data set)
@@ -13,7 +13,6 @@ The goals / steps of this project are the following:
 * Summarize the results with a written report
 
 [//]: # (Image References)
-
 [image1]: ./Writeup_images/Visualization_training.png "Visualization training"
 [image2]: ./Writeup_images/Visualization_validation.png "Visualization validation"
 [image3]: ./Writeup_images/visualization_test.png "Visualization test"
@@ -37,7 +36,6 @@ The goals / steps of this project are the following:
 [image21]: ./Writeup_images/conv2_relu.png "conv2_relu"
 [image22]: ./Writeup_images/conv2_pool.png "conv2_pool"
 [image23]: ./Writeup_images/conv1_relu.png "conv1_reli"
-[image1]: ./Writeup_images/Visualization_training.png "solidWhiteCurve"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
