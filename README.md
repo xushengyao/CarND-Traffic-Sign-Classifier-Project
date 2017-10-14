@@ -65,14 +65,10 @@ Here are exploratory visualizations of the data set. They are bar charts showing
 <center>
 
 ![alt text][image1]
-</center>
 
-<center>
 
 ![alt text][image2]
-</center>
 
-<center>
 
 ![alt text][image3]
 </center>
@@ -206,20 +202,26 @@ As the layer goes deeper, most noise are gone and only pixels with import featur
 <center>
 
 ![alt text][image17]
+
 conv1
 
 ![alt text][image18]
+
 conv1_relu
 
 ![alt text][image19]
+
 conv1_max_pool
 
 ![alt text][image20]
+
 conv2
 
 ![alt text][image21]
+
 conv2_relu
 
 ![alt text][image22]
+
 conv2_max_pool
 </center>
